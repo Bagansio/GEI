@@ -1,0 +1,72 @@
+\hypertarget{program_8cc}{}\section{Referencia del Archivo program.\+cc}
+\label{program_8cc}\index{program.\+cc@{program.\+cc}}
+
+
+Programa principal del ejercicio X90633.  
+
+
+Dependencia gráfica adjunta para program.\+cc\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=181pt]{program_8cc__incl}
+\end{center}
+\end{figure}
+\subsection*{Funciones}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Programa principal del ejercicio X90633. 
+
+
+
+\subsection{Documentación de las funciones}
+\mbox{\Hypertarget{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{program_8cc_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{program.\+cc@{program.\+cc}!main@{main}}
+\index{main@{main}!program.\+cc@{program.\+cc}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definición en la línea 16 del archivo program.\+cc.
+
+
+\begin{DoxyCode}
+16            \{
+17   \hyperlink{class_cjt__estudiants}{Cjt\_estudiants} c;
+18   c.\hyperlink{class_cjt__estudiants_aa24c2d4c36167b2b810ab459435b67a8}{llegir}();
+19  
+20   \textcolor{keywordtype}{int} op = readint();
+21   \textcolor{keywordflow}{while} (op!= -5)\{
+22     \hyperlink{class_estudiant}{Estudiant} est; 
+23     \textcolor{keywordtype}{int} dni; 
+24     \textcolor{keywordtype}{bool} b;
+25     \textcolor{keywordflow}{switch} (op)\{ 
+26     \textcolor{keywordflow}{case} -1:   \textcolor{comment}{// afegir estudiant}
+27       est.\hyperlink{class_estudiant_af5c4883975828647dfb5ffc6735740e6}{llegir}();
+28       c.\hyperlink{class_cjt__estudiants_a4188715904e017fa15b9ad8bc63112b6}{afegir\_estudiant}(est,b);
+29       \textcolor{keywordflow}{if} (b)  cout << \textcolor{stringliteral}{"L'estudiant "} << est.\hyperlink{class_estudiant_ad37108e53c6c0f1fcb5786e77e1902f5}{consultar\_DNI}() << \textcolor{stringliteral}{" ja hi era"} << endl << endl;
+30       \textcolor{keywordflow}{break};
+31     \textcolor{keywordflow}{case} -2:   \textcolor{comment}{// esborrar estudiant}
+32       cin >> dni; \textcolor{comment}{//  dni de l'estudiant a esborrar}
+33       c.\hyperlink{class_cjt__estudiants_a6632e0cecaa9d698cb51da07c9e58402}{esborrar\_estudiant}(dni,b);
+34       \textcolor{keywordflow}{if} (not b)  cout << \textcolor{stringliteral}{"L'estudiant amb dni "} << dni << \textcolor{stringliteral}{" no hi era"} << endl << endl;      
+35      \textcolor{keywordflow}{break}; 
+36     \textcolor{keywordflow}{case} -3:   \textcolor{comment}{// escriure conjunt}
+37       cout << \textcolor{stringliteral}{"Conjunt:"} << endl;
+38       c.\hyperlink{class_cjt__estudiants_a2c25dbd33850025de3389617712f896a}{escriure}();
+39       cout << endl;
+40       \textcolor{keywordflow}{break};
+41     \textcolor{keywordflow}{case} -4:   \textcolor{comment}{// mitjana conjunt}
+42       cout << \textcolor{stringliteral}{"Nota mitjana: "};
+43       cout << c.\hyperlink{class_cjt__estudiants_a8c8099d5080864a677743e5e1d1bbdf8}{mitjana\_estudiants\_amb\_nota}() << endl << endl;
+44     \}
+45     op = readint();
+46   \}
+47 \}
+\end{DoxyCode}

@@ -1,0 +1,71 @@
+Conjunt:
+3
+111 40.22
+222 62.66
+555 NP
+
+Estudiants amb beca del conjunt: 0
+
+L'estudiant 555 ja hi era
+
+Afegit 333 77
+
+Conjunt:
+4
+111 40.22
+222 62.66
+333 77
+555 NP
+
+Estudiants amb beca del conjunt: 1
+El becat menys prioritari del conjunt es 333 77
+
+Afegit 554 91.5
+
+Afegit 445 NP
+
+Conjunt:
+6
+111 40.22
+222 62.66
+333 77
+445 NP
+554 91.5
+555 NP
+
+Estudiants amb beca del conjunt: 1
+El becat menys prioritari del conjunt es 554 91.5
+
+Hem llegit un nou conjunt 
+
+Conjunt:
+8
+1111 40.22
+2222 62
+3333 NP
+4444 40.22
+5555 63
+6666 NP
+7777 40.22
+8888 64
+
+Estudiants amb beca del conjunt: 3
+El becat menys prioritari del conjunt es 2222 62
+
+Afegit 4445 80.4
+
+Conjunt:
+9
+1111 40.22
+2222 62
+3333 NP
+4444 40.22
+4445 80.4
+5555 63
+6666 NP
+7777 40.22
+8888 64
+
+Estudiants amb beca del conjunt: 3
+El becat menys prioritari del conjunt es 5555 63
+

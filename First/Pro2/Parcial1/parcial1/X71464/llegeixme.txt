@@ -1,0 +1,48 @@
+Aquest document descriu com produir l'executable del programa pro2 i
+com fer proves amb el codi.
+
+Els fonts que us subministrem els podeu veure com un projecte de programació
+amb 4 mòduls: pro2.cc (amb el main), Estudiant, Cjt_estudiants i solucio,
+amb la particularitat que solucio no es una classe de dades, com ara les
+altres, sinò que simplement proporciona operacions addicionals que no
+pertanyen a cap classe.
+
+
+Com generar l'executable
+========================
+
+Se suposa que treballareu en la mateixa carpeta on descomprimiu el fitxer 
+.tar que conté els tots els fitxers que acompanyen l'enunciat. 
+
+Per obtenir per primera vegada un executable del programa, podeu fer
+
+	 p2++ -c *.cc 
+	 p2++ -o pro2.exe *.o
+
+La resta de vegades podeu compilar només el fitxer solucio.cc 
+
+	 p2++ -c solucio.cc
+ 	 p2++ -o pro2.exe *.o
+
+
+JP públic
+========= 
+
+Entrada: primer es llegeix el conjunt inicial i després es llegeixen les operacions
+(codi d'operació i dades de l'operació) fins acabar amb un codi -5.
+Estudieu amb cura el fitxer pro2.cc per a deduir el significat de cada codi. 
+Vegeu el fitxers sample.inp (joc de proves públic) i sample.cor (sortida esperada del joc de proves públic). 
+
+Com provar l'executable
+========================
+
+Podeu capturar la sortida del vostre programa amb la comanda
+
+         ./pro2.exe < sample.inp  > nom_fitxer
+
+La nostra correcció serà equivalent a executar la comanda
+
+         diff -bB sample.cor nom_fitxer
+
+El resultat del programa és correcte si la comanda anterior produeix 0 diferències.
+

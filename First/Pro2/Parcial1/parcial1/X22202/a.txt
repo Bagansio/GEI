@@ -1,0 +1,55 @@
+Conjunt:
+3
+111 40.22
+222 62.66
+333 NP
+
+Estudiants presentats i estudiants aprovats: 2 1
+
+Conjunt:
+4
+111 40.22
+222 62.66
+333 NP
+444 52.02
+
+Estudiants presentats i estudiants aprovats: 3 2
+
+Conjunt:
+4
+111 40.22
+222 62.66
+333 42.13
+444 52.02
+
+Estudiants presentats i estudiants aprovats: 4 2
+
+Conjunt:
+3
+111 40.22
+333 42.13
+444 52.02
+
+Estudiants presentats i estudiants aprovats: 3 1
+
+Conjunt:
+5
+111 40.22
+333 42.13
+444 52.02
+445 NP
+555 91.5
+
+Estudiants presentats i estudiants aprovats: 4 2
+
+L'estudiant 445 ja hi era
+
+L'estudiant 888 no hi era
+
+Conjunt:
+4
+111 40.22
+444 52.02
+445 NP
+555 91.5
+

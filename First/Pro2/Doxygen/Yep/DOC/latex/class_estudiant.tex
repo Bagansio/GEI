@@ -1,0 +1,248 @@
+\hypertarget{class_estudiant}{}\section{Referencia de la Clase Estudiant}
+\label{class_estudiant}\index{Estudiant@{Estudiant}}
+
+
+Representa un estudiante con D\+NI.  
+
+
+\subsection*{Métodos públicos}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{class_estudiant_a88f7f46dd946fef9f7a71fdc608afd16}{Estudiant} ()
+\begin{DoxyCompactList}\small\item\em Creadora por defecto. \end{DoxyCompactList}\item 
+\hyperlink{class_estudiant_ae0a9ebffe2ff8fb6cecc15a909206a1b}{Estudiant} (int dni)
+\begin{DoxyCompactList}\small\item\em Creadora de un estudiante con D\+NI. \end{DoxyCompactList}\item 
+\hyperlink{class_estudiant_a2e2bd22924dacfe16acf12b5c31efd01}{$\sim$\+Estudiant} ()
+\begin{DoxyCompactList}\small\item\em Destructora por defecto. \end{DoxyCompactList}\item 
+void \hyperlink{class_estudiant_a8a2186560dce4ccfc5922d2c98f21305}{afegir\+\_\+nota} (double nota)
+\begin{DoxyCompactList}\small\item\em Añade una nota al estudiante. \end{DoxyCompactList}\item 
+void \hyperlink{class_estudiant_a5d5eded678c16a864f22477d401a56af}{modificar\+\_\+nota} (double nota)
+\begin{DoxyCompactList}\small\item\em Modifica la nota del estudiante. \end{DoxyCompactList}\item 
+int \hyperlink{class_estudiant_ad37108e53c6c0f1fcb5786e77e1902f5}{consultar\+\_\+\+D\+NI} () const
+\begin{DoxyCompactList}\small\item\em Consultora del D\+NI del estudiante. \end{DoxyCompactList}\item 
+double \hyperlink{class_estudiant_a21afbb59cddf87258d600df04ab95397}{consultar\+\_\+nota} () const
+\begin{DoxyCompactList}\small\item\em Consultora de la nota del estudiante. \end{DoxyCompactList}\item 
+bool \hyperlink{class_estudiant_a81f265e635e1fe198867a5b594359e1b}{te\+\_\+nota} () const
+\begin{DoxyCompactList}\small\item\em Consultora de si el estudiante tiene nota. \end{DoxyCompactList}\item 
+void \hyperlink{class_estudiant_af5c4883975828647dfb5ffc6735740e6}{llegir} ()
+\begin{DoxyCompactList}\small\item\em Operación de lectura. \end{DoxyCompactList}\item 
+void \hyperlink{class_estudiant_aa9a1736c5b133c65d0e9ba299bb41de5}{escriure} () const
+\begin{DoxyCompactList}\small\item\em Operación de escritura. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Métodos públicos estáticos}
+\begin{DoxyCompactItemize}
+\item 
+static double \hyperlink{class_estudiant_a5df5eed414c87a2a1c2efa4194633afd}{nota\+\_\+maxima} ()
+\begin{DoxyCompactList}\small\item\em Consultora de la nota máxima posible de un estudiante. \end{DoxyCompactList}\item 
+static bool \hyperlink{class_estudiant_a5f19b7f7436e8c12a13159335040ae42}{comp} (const \hyperlink{class_estudiant}{Estudiant} \&e1, const \hyperlink{class_estudiant}{Estudiant} \&e2)
+\begin{DoxyCompactList}\small\item\em Comparación de estudiantes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Descripción detallada}
+Representa un estudiante con D\+NI. 
+
+Puede tener nota y en tal caso su máxima nota es un 10 
+
+Definición en la línea 18 del archivo Estudiant.\+hh.
+
+
+
+\subsection{Documentación del constructor y destructor}
+\mbox{\Hypertarget{class_estudiant_a88f7f46dd946fef9f7a71fdc608afd16}\label{class_estudiant_a88f7f46dd946fef9f7a71fdc608afd16}} 
+\index{Estudiant@{Estudiant}!Estudiant@{Estudiant}}
+\index{Estudiant@{Estudiant}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{Estudiant()}{Estudiant()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily Estudiant\+::\+Estudiant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Creadora por defecto. 
+
+Se ejecuta automáticamente al declarar un estudiante. \begin{DoxyPrecond}{Precondición}
+{\bfseries {\itshape Cierto}} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un estudiante con D\+NI = 0 y sin nota 
+\end{DoxyPostcond}
+\begin{DoxyParagraph}{Coste}
+Constante 
+\end{DoxyParagraph}
+\mbox{\Hypertarget{class_estudiant_ae0a9ebffe2ff8fb6cecc15a909206a1b}\label{class_estudiant_ae0a9ebffe2ff8fb6cecc15a909206a1b}} 
+\index{Estudiant@{Estudiant}!Estudiant@{Estudiant}}
+\index{Estudiant@{Estudiant}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{Estudiant()}{Estudiant()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily Estudiant\+::\+Estudiant (\begin{DoxyParamCaption}\item[{int}]{dni }\end{DoxyParamCaption})}
+
+
+
+Creadora de un estudiante con D\+NI. 
+
+\begin{DoxyPrecond}{Precondición}
+{\bfseries dni $>$= 0} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es un estudiante con D\+NI = dni y sin nota 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_a2e2bd22924dacfe16acf12b5c31efd01}\label{class_estudiant_a2e2bd22924dacfe16acf12b5c31efd01}} 
+\index{Estudiant@{Estudiant}!````~Estudiant@{$\sim$\+Estudiant}}
+\index{````~Estudiant@{$\sim$\+Estudiant}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{$\sim$\+Estudiant()}{~Estudiant()}}
+{\footnotesize\ttfamily Estudiant\+::$\sim$\+Estudiant (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destructora por defecto. 
+
+
+
+\subsection{Documentación de las funciones miembro}
+\mbox{\Hypertarget{class_estudiant_a8a2186560dce4ccfc5922d2c98f21305}\label{class_estudiant_a8a2186560dce4ccfc5922d2c98f21305}} 
+\index{Estudiant@{Estudiant}!afegir\+\_\+nota@{afegir\+\_\+nota}}
+\index{afegir\+\_\+nota@{afegir\+\_\+nota}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{afegir\+\_\+nota()}{afegir\_nota()}}
+{\footnotesize\ttfamily void Estudiant\+::afegir\+\_\+nota (\begin{DoxyParamCaption}\item[{double}]{nota }\end{DoxyParamCaption})}
+
+
+
+Añade una nota al estudiante. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito no tiene nota, 0 $<$= \char`\"{}nota\char`\"{} $<$= \hyperlink{class_estudiant_a5df5eed414c87a2a1c2efa4194633afd}{nota\+\_\+maxima()} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+La nota del parámetro implícito pasa a ser \char`\"{}nota\char`\"{} 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_a5d5eded678c16a864f22477d401a56af}\label{class_estudiant_a5d5eded678c16a864f22477d401a56af}} 
+\index{Estudiant@{Estudiant}!modificar\+\_\+nota@{modificar\+\_\+nota}}
+\index{modificar\+\_\+nota@{modificar\+\_\+nota}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{modificar\+\_\+nota()}{modificar\_nota()}}
+{\footnotesize\ttfamily void Estudiant\+::modificar\+\_\+nota (\begin{DoxyParamCaption}\item[{double}]{nota }\end{DoxyParamCaption})}
+
+
+
+Modifica la nota del estudiante. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito tiene nota, 0 $<$= \char`\"{}nota\char`\"{} $<$= \hyperlink{class_estudiant_a5df5eed414c87a2a1c2efa4194633afd}{nota\+\_\+maxima()} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+La nota del parámetro implícito pasa a ser \char`\"{}nota\char`\"{} 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_ad37108e53c6c0f1fcb5786e77e1902f5}\label{class_estudiant_ad37108e53c6c0f1fcb5786e77e1902f5}} 
+\index{Estudiant@{Estudiant}!consultar\+\_\+\+D\+NI@{consultar\+\_\+\+D\+NI}}
+\index{consultar\+\_\+\+D\+NI@{consultar\+\_\+\+D\+NI}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{consultar\+\_\+\+D\+N\+I()}{consultar\_DNI()}}
+{\footnotesize\ttfamily int Estudiant\+::consultar\+\_\+\+D\+NI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora del D\+NI del estudiante. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es el D\+NI del pparámetro implícito 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_a21afbb59cddf87258d600df04ab95397}\label{class_estudiant_a21afbb59cddf87258d600df04ab95397}} 
+\index{Estudiant@{Estudiant}!consultar\+\_\+nota@{consultar\+\_\+nota}}
+\index{consultar\+\_\+nota@{consultar\+\_\+nota}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{consultar\+\_\+nota()}{consultar\_nota()}}
+{\footnotesize\ttfamily double Estudiant\+::consultar\+\_\+nota (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora de la nota del estudiante. 
+
+\begin{DoxyPrecond}{Precondición}
+El parámetro implícito tiene nota 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es la nota del parámetro implícito 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_a5df5eed414c87a2a1c2efa4194633afd}\label{class_estudiant_a5df5eed414c87a2a1c2efa4194633afd}} 
+\index{Estudiant@{Estudiant}!nota\+\_\+maxima@{nota\+\_\+maxima}}
+\index{nota\+\_\+maxima@{nota\+\_\+maxima}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{nota\+\_\+maxima()}{nota\_maxima()}}
+{\footnotesize\ttfamily static double Estudiant\+::nota\+\_\+maxima (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Consultora de la nota máxima posible de un estudiante. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado es la nota máxima de los elementos de la clase. 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_a81f265e635e1fe198867a5b594359e1b}\label{class_estudiant_a81f265e635e1fe198867a5b594359e1b}} 
+\index{Estudiant@{Estudiant}!te\+\_\+nota@{te\+\_\+nota}}
+\index{te\+\_\+nota@{te\+\_\+nota}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{te\+\_\+nota()}{te\_nota()}}
+{\footnotesize\ttfamily bool Estudiant\+::te\+\_\+nota (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Consultora de si el estudiante tiene nota. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el parámetro implícito tiene nota o no 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_a5f19b7f7436e8c12a13159335040ae42}\label{class_estudiant_a5f19b7f7436e8c12a13159335040ae42}} 
+\index{Estudiant@{Estudiant}!comp@{comp}}
+\index{comp@{comp}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{comp()}{comp()}}
+{\footnotesize\ttfamily static bool Estudiant\+::comp (\begin{DoxyParamCaption}\item[{const \hyperlink{class_estudiant}{Estudiant} \&}]{e1,  }\item[{const \hyperlink{class_estudiant}{Estudiant} \&}]{e2 }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Comparación de estudiantes. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El resultado indica si el D\+NI de e1 es más pequeño que el de e2 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_af5c4883975828647dfb5ffc6735740e6}\label{class_estudiant_af5c4883975828647dfb5ffc6735740e6}} 
+\index{Estudiant@{Estudiant}!llegir@{llegir}}
+\index{llegir@{llegir}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{llegir()}{llegir()}}
+{\footnotesize\ttfamily void Estudiant\+::llegir (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Operación de lectura. 
+
+\begin{DoxyPrecond}{Precondición}
+Hay preparado en el canal estandard de entrada un entero no negativo y un double 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+El parámetro implícito pasa a tener los atributos leídos del canal estandard de entrada,~\newline
+ en el caso que el double no pertenezca al intervalo \mbox{[}0,\hyperlink{class_estudiant_a5df5eed414c87a2a1c2efa4194633afd}{nota\+\_\+maxima()}\mbox{]} no tendrá nota 
+\end{DoxyPostcond}
+\mbox{\Hypertarget{class_estudiant_aa9a1736c5b133c65d0e9ba299bb41de5}\label{class_estudiant_aa9a1736c5b133c65d0e9ba299bb41de5}} 
+\index{Estudiant@{Estudiant}!escriure@{escriure}}
+\index{escriure@{escriure}!Estudiant@{Estudiant}}
+\subsubsection{\texorpdfstring{escriure()}{escriure()}}
+{\footnotesize\ttfamily void Estudiant\+::escriure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Operación de escritura. 
+
+\begin{DoxyPrecond}{Precondición}
+{\itshape Cierto} 
+\end{DoxyPrecond}
+\begin{DoxyPostcond}{Postcondición}
+Se han escrito los atributos del parámetro implícito al canal estandard de salida;~\newline
+ sino tiene nota escribe \char`\"{}\+N\+P\char`\"{} 
+\end{DoxyPostcond}
+
+
+La documentación para esta clase fue generada a partir del siguiente fichero\+:\begin{DoxyCompactItemize}
+\item 
+\hyperlink{_estudiant_8hh}{Estudiant.\+hh}\end{DoxyCompactItemize}
