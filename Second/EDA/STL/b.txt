@@ -1,15 +1,12 @@
-A
-S 10    A
-S -7    A
-S 20    A
-I 3     A
-D 15    A
-R       A
-S 30    A
-D 37    R     A
-R       A
-R       I 1
-A
-R
-D 3
-S 4     A
+destello 1220
+fxtr 1200
+player(s) not connected
+player(s) not connected
+
+RANKING
+destello 1220
+carokhan 1210
+cerebrus 1200
+cusell 1200
+fxtr 1200
+grassman 1200
