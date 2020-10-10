@@ -1,0 +1,3 @@
+Sesión 2: El lenguaje C
+PREGUNTA 18. ¿Qué opción has tenido que añadir al gcc para generar el fichero objecto? ¿Qué opción has tenido que añadir al gcc para que el compilador encuentre el fichero mis_funciones.h?
+ -I/mis_funciones.h

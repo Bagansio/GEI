@@ -1,0 +1,105 @@
+Sesión 1: El intérprete de comandos: shell
+PREGUNTA 1. ¿Qué comandos habéis utilizado para crear los directorios S1..S5?
+
+	#mkdir S1 S2 S3 S4 S5
+
+PREGUNTA 2. ¿Qué comando utilizas para listar el contenido de un directorio? ¿Qué opción hay que añadir para ver los ficheros ocultos?
+
+	#ls
+
+	#ls -a		// -a para ver ficheros ocultos
+
+PREGUNTA 3. ¿Qué opción hay que añadir a ls para ver información extendida de los ficheros? ¿Qué campos se ven por defecto con esa opción?
+
+	#ls -l
+
+	7 caracteres, donde el primero te dice que tipo de fichero es y los siguientes representan los privilegios que tiene el usuario, un grupo o otros respecto a ese fichero
+
+	nombre del creador del fichero	
+
+	nombre al grupo que este pertenece
+
+	tamaño del fichero
+
+	fecha de la última modificación de este
+
+	y finalmente el nombre del fichero
+
+
+PREGUNTA 4. ¿Qué opciones de menú has activado para extender la información que muestra el File Browser?
+
+	Tamaño, Propietario, Grupo, Permisos y Fecha de modificación
+
+PREGUNTA 5. ¿Qué secuencia de comandos has ejecutado para borrar un directorio, comprobar que no está y volver a crearlo?
+
+	#rmdir S4
+	#ls
+	#mkdir S4
+
+PREGUNTA 6. ¿Qué diferencia hay entre el comando cat y less?
+
+ 	Cat se ejecuta en la misma shell mientras que el less se te abre en otro lugar.
+
+PREGUNTA 7. ¿Para qué sirve la opción -i del comando cp? ¿Cuál es la orden para hacer un alias del comando cp que incluya la opción -i?
+
+	Te pregunta previamente en el caso de que el nombre de ese fichero ya exista si quieres
+	sobreescrivir el fichero existente por la copia nueva o no
+
+PREGUNTA 8. ¿Qué hace la opción -i del comando rm? ¿Y la opción -i del mv? Escribe la orden para hacer un alias del comando rm que incluya la opción -i.
+
+	La opción -i del comando rm te pregunta previamente si quieres borrar ese fichero o no.
+
+	La opción -i del comando mv te pregunta en el caso que vayas a mover o renombrar el fichero a uno ya existente si quieres sobreescrivirlo o no.
+
+	alias rm =' rm -i '
+
+PREGUNTA 9. ¿Qué opciones de chmod has utilizado para dejar solamente los permisos de escritura? ¿Qué resultado ha devuelvo cat al intentar ver el fichero test? ¿Qué opciones de chmod has utilizado para dejar solamente los permisos de lectura? ¿Has conseguido borrarlo?
+	
+	#chmod ugo=w test
+	
+	cat: test: Permiso denegado
+
+	#chmod ugo=r test
+	
+	Sí, pero antes de ello me ha preguntado si quería hacerlo aún y no tener la opción -i
+
+
+PREGUNTA 10. ¿Cuál es el significado de las variables de entorno PATH, HOME y PWD? 
+
+	PATH: Contiene la dirección de varios directorios desde los cuales tienes acceso al resto del sistema
+	HOME: Contiene la direción del origen de los directorios del usuario
+	PWD: Contiene la dirección del directorio actual
+
+PREGUNTA 11. La variable PATH es una lista de directorios, ¿Qué carácter hacer de separador entre un directorio y otro? 
+
+	El caracter ':'
+
+PREGUNTA 12. ¿Qué comando has usado para definir y consultar el valor de las nuevas variables que has definido? 
+
+	#export NOMBREVARIABLE=valor		// PARA DEFINIR
+	#echo   $NOMBREVARIABLE			// PARA CONSULTAR
+
+PREGUNTA 13. ¿Qué versión de la se ha ejecutado? ¿El ls del sistema o el que te acabas de bajar? Ejecuta el comando "which ls" para comprobarlo.
+
+	He ejecutado el que me acabo de bajar
+
+PREGUNTA 14. ¿El directorio en el que estás, está definido en la variable PATH? ¿Qué implica esto?
+	
+	Que cuando llame a un comando lo va tener en cuenta en la busqueda de este	
+
+PREGUNTA 15. ¿Qué programa se ha ejecutado? ¿El ls del sistema o el que te acabas de bajar? Ejecuta el comando "which ls" para comprobarlo.
+
+	Se ha ejecutado el ls del sistema
+
+PREGUNTA 16. ¿Qué programa ls se ha ejecutado? ¿El ls del sistema o el que te acabas de bajar? Ejecuta el comando "which ls" para comprobarlo.
+
+
+	Se ha ejecutado el ls del sistema
+
+PREGUNTA 17. ¿Qué diferencia hay entre utilizar  > y >>?
+
+	' >> ' En caso de que el nombre del fichero exista pondrá la salida del comando debajo de la del fichero ya existente
+	' > '  Te sobreescribe en caso de existir un fichero con ese nombre por un nuevo fichero con la salida del comando
+	
+
+

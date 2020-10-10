@@ -1,7 +1,7 @@
-all: numeros
+all: punteros
 
-numeros:
-	gcc -o numeros numeros.c
+punteros:
+	gcc -o punteros punteros.c
 
 clean:
-	rm numeros
+	rm punteros
