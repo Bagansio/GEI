@@ -1,0 +1,75 @@
+ejemplo_fork1:
+
+    Soy el proceso 36 -> PADRE
+    Soy el proceso 37 -> HIJO
+
+ejemplo_fork2:
+
+    Antes del fork: Soy el proceso 50 -> PADRE  (Porque aún no se ha creado el hijo)
+    PADRE: Soy el proceso 50          -> PADRE  (Previamente nos ha dicho el valor del padre, a su vez, lo sabes porque el pid != 0 y eso es debido a que no es el hijo)
+    HIJO: Soy el proceso 51           -> HIJO   (Para poder decir esta salida pid = 0 y eso es solo posible cuando el fork devuelve 0 y eso pasa cuando el proceso es el hijo)
+    Los DOS: Soy el proceso 50        -> PADRE  (Porque hemos visto previamente que el id del padre era 50)
+    Los DOS: Soy el proceso 51        -> HIJO   (Porque hemos visto previamente que el id del hijo era 51)
+
+ejemplo_fork3:
+
+    Antes del fork: Soy el proceso 52               -> PADRE  (Porque aún no se ha creado el hijo)
+    PADRE: Soy el proceso 52                        -> PADRE  (Previamente nos ha dicho el valor del padre, a su vez, lo sabes porque el pid != 0 y eso es debido a que no es el hijo)
+    HIJO: Soy el proceso 53                         -> HIJO   (Para poder decir esta salida pid = 0 y eso es solo posible cuando el fork devuelve 0 y eso pasa cuando el proceso es el hijo)
+    Solo lo ejecuta el padre: Soy el proceso 52     -> PADRE  (En el caso de que seas el proceso hijo, este en el switch usa la función exit acabando el proceso, por lo que obligatoriamente es el padre)
+
+ejemplo_fork4:
+
+    Antes del fork: Soy el proceso 54
+    PADRE: Soy el proceso 54
+    Solo lo ejecuta el padre: Soy el proceso 54
+    HIJO: Soy el proceso 55
+    HIJO acaba: Soy el proceso 55
+
+    El orden en el que aparecen es primero el padre y luego el hijo, esto es debido a que el primero en acabar de ejecutarse es el padre
+
+ejemplo_fork5:  
+
+    Antes del fork: Soy el proceso 167              -> PADRE (Porque aún no se ha creado el hijo)
+    PADRE: Soy el proceso 167                       -> PADRE (Previamente nos ha dicho el valor del padre, a su vez, lo sabes porque el pid != 0 y eso es debido a que no es el hijo)
+    HIJO: Soy el proceso 168                        -> HIJO  (Para poder decir esta salida pid = 0 y eso es solo posible cuando el fork devuelve 0 y eso pasa cuando el proceso es el hijo)
+    HIJO:La variable_global vale A y la local a     -> HIJO  (Para poder decir esta salida pid = 0 y eso es solo posible cuando el fork devuelve 0 y eso pasa cuando el proceso es el hijo)
+    PADRE:La variable_global vale A y la local a    -> PADRE (Porque para poder decir esta salida el pid != 0 y eso es debido a que no es el hijo)
+    Solo lo ejecuta el padre: Soy el proceso 167    -> PADRE (En el caso del hijo, tiene un exit dentro del switch impidiendo salir de este, por consecuencia, es el padre)
+
+    ---------------------------------
+
+    DESPUES:
+
+    Antes del fork: Soy el proceso 191
+    PADRE: Soy el proceso 191
+    HIJO: Soy el proceso 192
+    HIJO:La variable_global vale Z y la local z    // SE MODIFICA EL VALOR DE LA VARIABLE GLOBAL Y LOCAL
+    PADRE:La variable_global vale A y la local a
+    Solo lo ejecuta el padre: Soy el proceso 191
+
+
+ejemplo_fork6:
+
+    Tiene la misma estructura que el anterior añadiendo que ahora tienen un bucle de 100000 elementos donde cada 10000 aumentan uno el valor de la variable global, y por cada ciclo nos escriben el valor de esta.
+
+    Si ejecutamos varias veces este programa el contenido seria algo diferente debido a que el PID varia.
+
+ejemplo_fork7:
+
+    No compila debido a que en la función Escribe_variables() utilizamos una variable llamada variable_local la cual unicamente ha sido inicializada en el main y esta no se ha referenciado en la función.
+    Es por eso que no tiene nada que ver con los procesos, 
+    Podemos solucionarlo añadiendo la referencia de esta variable a la funcion.
+
+ejemplo_exec1:
+
+    El programa primero nos dice el PID de este, y luego ejecuta el comando #ls -la
+    Nos dice el PID una vez debido a que antes de decirlo por segunda vez, este proceso cambia su codigo por el del comando #ls -l , ejecutando este.
+
+ejemplo_exec2:
+
+    Soy el proceso: 269
+    Soy el proceso 269
+    Soy el proceso 270
+
+    Se ejecutan 2 procesos, el primero pertenece a las dos primeras salidas, siendo la primera perteneciente al ejemplo_exec2, y la segunda a ejemplo_fork1 debido a la funcion execlp, y la ultima linia es ya del 2 proceso, creado en el ejemplo_fork1
