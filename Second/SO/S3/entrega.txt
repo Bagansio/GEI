@@ -1,0 +1,111 @@
+Sesión 3: Procesos
+PREGUNTA 19. ¿Cómo puede saber un proceso el pid de sus hijos? ¿Qué llamada pueden utilizar los procesos para consultar su propio PID?
+
+        La función fork() al ser usada devuelve al padre el pid del hijo, así el padre podrá saber el PID de ellos.
+
+        Y para consultar un propio proceso su PID esta la función getpid()
+
+PREGUNTA 20. ¿En qué casos se ejecutará cualquier código que aparezca justo después de la llamada execlp (En cualquier caso/ En caso que el execlp se ejecute de forma correcta/ En caso que el exclp falle)?
+
+        Se ejecutará en caso que el exclp fallé
+
+PREGUNTA 21. ¿Qué directorios hay dentro de /proc/PID_PADRE? ¿Qué opción de ls has usado?
+
+        Esta el directorio CWD (que apunta al directorio desde donde se ha ejecutado el proceso)
+        el directorio exe   (apunta a fichero el cual ha ejecutado este proceso)
+        el directorio root (apunta al mismo directorio)
+
+PREGUNTA 22. Apunta el contenido de los ficheros status y cmdline. Compara el contenido del fichero environ con el resultado del comando env (fíjate por ejemplo en la variable PATH y la variable PWD) ¿Qué relación hay? Busca en el contenido del fichero status el estado en el que se encuentra el proceso y apúntalo en el fichero de respuestas. 
+
+    cmdline:
+            ./myPS0
+    status:
+        Name:	myPS
+        Umask:	0022
+        State:	R (running)
+        Tgid:	5288
+        Ngid:	0
+        Pid:	5288
+        PPid:	2268
+        TracerPid:	0
+        Uid:	1000	1000	1000	1000
+        Gid:	1000	1000	1000	1000
+        FDSize:	256
+        Groups:	4 24 27 30 46 116 126 1000 
+        NStgid:	5288
+        NSpid:	5288
+        NSpgid:	5288
+        NSsid:	2268
+        VmPeak:	    4472 kB
+        VmSize:	    4372 kB
+        VmLck:	       0 kB
+        VmPin:	       0 kB
+        VmHWM:	     796 kB
+        VmRSS:	     796 kB
+        RssAnon:	      64 kB
+        RssFile:	     732 kB
+        RssShmem:	       0 kB
+        VmData:	      44 kB
+        VmStk:	     132 kB
+        VmExe:	       4 kB
+        VmLib:	    2108 kB
+        VmPTE:	      52 kB
+        VmSwap:	       0 kB
+        HugetlbPages:	       0 kB
+        CoreDumping:	0
+        THP_enabled:	1
+        Threads:	1
+        SigQ:	4/63350
+        SigPnd:	0000000000000000
+        ShdPnd:	0000000000000000
+        SigBlk:	0000000000000000
+        SigIgn:	0000000000000000
+        SigCgt:	0000000000000000
+        CapInh:	0000000000000000
+        CapPrm:	0000000000000000
+        CapEff:	0000000000000000
+        CapBnd:	0000003fffffffff
+        CapAmb:	0000000000000000
+        NoNewPrivs:	0
+        Seccomp:	0
+        Speculation_Store_Bypass:	thread vulnerable
+        Cpus_allowed:	fff
+        Cpus_allowed_list:	0-11
+        Mems_allowed:	00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000000,00000001
+        Mems_allowed_list:	0
+        voluntary_ctxt_switches:	0
+        nonvoluntary_ctxt_switches:	1128
+        
+        La relación entre el fichero environ y el comando env es que contienen la misma información
+
+        El estado es R (running) es decir que el proceso se esta ejecutando
+
+        El tiempo de CPU que ha consumido en modo usuario es 89147
+
+PREGUNTA 23. ¿A qué ficheros "apuntan" los ficheros cwd y exe? ¿Cuál crees que es el significado de cwd y exe?
+
+        Ahora no apuntan a ningun fichero
+        Creo que el significado de estos ficheros es desde que directorio y fichero se esta ejecutando el proceso
+
+PREGUNTA 24. ¿Puedes mostrar el contenido de los ficheros environ, status y cmdline del proceso hijo? ¿En qué estado se encuentra el hijo?
+
+        Del fichero environ no tengo permisos, del status si y el cmdline esta vacio
+        El estado en que se encuentra es Z (zombie)
+
+PREGUNTA 25.En el caso del proceso hijo, ¿a qué ficheros “apuntan” los ficheros cwd y exe? ¿Cuál crees que es el significado de cwd y exe? ¿Qué diferencias hay con la versión anterior? ¿A qué sedeben?
+
+        Apuntan al directorio desde donde se ejecuta y el path del fichero ejecutado
+        En la version anterior ademas de no tener una ruta estaban de color rojo mientras que ahora azul.
+
+        Se debe a que previamente estaba en estado zombie y ahora running
+
+PREGUNTA 26.En  el  caso  del  proceso  hijo,  ¿puedes  mostrar  el  contenido  de  los  ficheros environ, status y cmdline del proceso hijo? ¿En qué estado se encuentra? ¿Qué diferencias hay con la versión anterior? ¿A qué se deben?
+
+        Si puedo mostrar los contenidos de los ficheros, y su estado es running
+        En la version anterior no me dejaba acceder al fichero environ y el cmdline estaba vacio
+
+PREGUNTA 27. Comprueba el fichero status de /proc/PID_PADRE /proc/PID_HIJO(s). ¿En qué estado está el proceso padre? ¿En qué estado están los hijos? 
+
+
+
+PREGUNTA 28. ¿Qué has hecho para guardar la salida de las ejecuciones de myPS3?
