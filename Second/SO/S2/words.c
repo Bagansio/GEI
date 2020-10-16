@@ -2,27 +2,37 @@
 #include <stdio.h>
 #include <string.h>
 
-int count(char *s)
+int	isnot_word(char c)
 {
-    int c = 0;
-    for(int i = 0; s[i] != '\0' && s[i] != '.' && s[i] != ',' && s[i] != '\n'; ++i)
-    {
-        if (s[i] == ' ' && i == 0 || s[i-1] != '-') ++c;
-    }
-    return c;
+	return (c == ' ' || c == '\n' || c == '.' || c == ',');
+}
+
+int	countw(char *str)
+{
+	int	word = 0;
+	int count = 0;
+	int i = 0;
+
+	while (str[i] != '\0')
+	{
+		if (word == 0 && !isnot_word(str[i]))
+		{
+			++count;
+			word = 1;
+		}
+		else if (isnot_word(str[i]))
+		{
+			word = 0;
+		}
+		++i;
+	}
+	return (count);
 }
 
 int main(int argc, char *argv[])
 {
-    char buf[500];
-    if (argc > 1)
-    {
-        sprintf(buf, "%d palabras \n", count(argv[1]));
-    }
-    else 
-    {
-        sprintf(buf, "0 palabras \n");
-    }
-    write(1,buf,strlen(buf));
-    
+	if (argc >= 2) {
+		printf("%i palabras\n", countw(argv[1]));
+	}
+	return 0;
 }
