@@ -1,0 +1,4 @@
+¿En qué orden se van a escribir los mensajes? ¿Podemos garantizar que será siempre el mismo? Justifica tu respuesta en un fichero de texto llamado “respuestas.txt”
+
+Se van escribir por orden de acabada del proceso hijo, por lo que no podemos garantizar el mismo orden siempre, debido a que podria ser que el primer hijo tardasé más en actualizar la fecha que el segundo y por tanto saldria antes el segundo que el primero, pero en la segunda ejecución del programa podria ser al revés saliendo antes el primero que el segundo.
+
