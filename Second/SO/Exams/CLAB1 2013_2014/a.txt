@@ -1,0 +1,6 @@
+Ejecutamos el comando stat del fichero ./mstat
+stat ha detectado un problema con el fichero
+Ejecutamos el comando stat del fichero calcula.c
+stat ha detectado un problema con el fichero
+Ejecutamos el comando stat del fichero a.c
+stat ha detectado un problema con el fichero

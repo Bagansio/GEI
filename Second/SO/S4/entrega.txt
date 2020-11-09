@@ -1,0 +1,14 @@
+Session 4: Process communication 
+
+QUESTION 29. What happens to the parent now when the SIGALRM event arrives?
+
+    
+    The father ends the process because its the default behaviour of SIGALRM
+
+QUESTION 30. What happens with the signal treatment table if we do an execlp (and change the code)? Does the reprogramming of signals hold? Is it placed by default? 
+
+    The signal treatment table remains
+
+QUESTION 31. The program ejemplo_waitpid, is it sequential or concurrent?
+
+This program is concurrent because first born all the childs and then the waitpids are executed at the same time

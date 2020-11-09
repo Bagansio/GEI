@@ -1,0 +1,113 @@
+. Is it possible to know the addresses
+of the variables “i” and “j” with the nm command? Why? In which memory zone are
+these variables allocated? Search also the address assigned to the “suma” function.
+
+These are the address assigned of the instructions of the program:
+            |
+            v
+    0000000000200da8 d _DYNAMIC
+    0000000000200f98 d _GLOBAL_OFFSET_TABLE_
+    0000000000000920 R _IO_stdin_used
+                    w _ITM_deregisterTMCloneTable
+                    w _ITM_registerTMCloneTable
+    0000000000000abc r __FRAME_END__
+    0000000000000950 r __GNU_EH_FRAME_HDR
+    0000000000201010 D __TMC_END__
+    0000000000201010 B __bss_start
+                    w __cxa_finalize@@GLIBC_2.2.5
+    0000000000201000 D __data_start
+    0000000000000720 t __do_global_dtors_aux
+    0000000000200da0 t __do_global_dtors_aux_fini_array_entry
+    0000000000201008 D __dso_handle
+    0000000000200d98 t __frame_dummy_init_array_entry
+                    w __gmon_start__
+    0000000000200da0 t __init_array_end
+    0000000000200d98 t __init_array_start
+    0000000000000910 T __libc_csu_fini
+    00000000000008a0 T __libc_csu_init
+                    U __libc_start_main@@GLIBC_2.2.5
+    0000000000201010 D _edata
+    0000000000201018 B _end
+    0000000000000914 T _fini
+    00000000000005d0 T _init
+    0000000000000660 T _start
+                    U atoi@@GLIBC_2.2.5
+    0000000000201010 b completed.7698
+    0000000000201000 W data_start
+    0000000000000690 t deregister_tm_clones
+                    U exit@@GLIBC_2.2.5
+    0000000000000760 t frame_dummy
+    0000000000201014 B j
+    0000000000000789 T main
+    00000000000006d0 t register_tm_clones
+                    U sprintf@@GLIBC_2.2.5
+                    U strlen@@GLIBC_2.2.5
+    000000000000076a T suma
+                    U write@@GLIBC_2.2.5
+
+    
+    It is possible to know the memory address of the variable "j" with the nm command ("0000000000201014 B j") because it is a global variable (it is in the BSS), but "i" no because it is a local variable and it is gestioned by the dynamic memory.
+    The adress assigned to the "suma" function is :"000000000000076a T suma"
+
+
+Use the gcc command to compile the file mem1_previo.c linking it with static libraries.
+Indicate in the file “previo.txt” which commands have you used.
+   #gcc -o mem1_previo_v2 mem1_previo_v2.c -static
+
+mem2_previo_v2:
+
+10:
+
+00400000-004b6000 r-xp 00000000 00:00 101555                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo_v2
+004b6000-004b7000 r-xp 000b6000 00:00 101555                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo_v2
+006b7000-006bd000 rw-p 000b7000 00:00 101555                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo_v2
+006bd000-006be000 rw-p 00000000 00:00 0
+019ba000-019de000 rw-p 00000000 00:00 0                          [heap]
+7fffc95cb000-7fffc9dcb000 rw-p 00000000 00:00 0                  [stack]
+7fffc9ff3000-7fffc9ff4000 r-xp 00000000 00:00 0                  [vdso]
+
+HEAP: 0x019de000 - 0x019ba000 = 0x24000
+DATA: 0x006be000 - 0x006bd000 = 0x1000
+40000:
+
+00400000-004b6000 r-xp 00000000 00:00 101555                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo_v2
+004b6000-004b7000 r-xp 000b6000 00:00 101555                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo_v2
+006b7000-006bd000 rw-p 000b7000 00:00 101555                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo_v2
+006bd000-006be000 rw-p 00000000 00:00 0
+023ca000-02415000 rw-p 00000000 00:00 0                          [heap]
+7fffd6d73000-7fffd7573000 rw-p 00000000 00:00 0                  [stack]
+7fffd7bf1000-7fffd7bf2000 r-xp 00000000 00:00 0                  [vdso]
+
+HEAP: 0x02415000 - 0x023ca000 = 0x4B000
+DATA: 0x006be000 - 0x006bd000 = 0x1000
+
+mem2_previo:
+
+10:
+
+00400000-004b6000 r-xp 00000000 00:00 101636                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo
+004b6000-004b7000 r-xp 000b6000 00:00 101636                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo
+006b7000-006bd000 rw-p 000b7000 00:00 101636                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo
+006bd000-006e6000 rw-p 00000000 00:00 0
+01668000-0168b000 rw-p 00000000 00:00 0                          [heap]
+7fffeec12000-7fffef412000 rw-p 00000000 00:00 0                  [stack]
+7fffef802000-7fffef803000 r-xp 00000000 00:00 0                  [vdso]
+
+HEAP: 0x0168b000 - 0x01668000 = 0x23000
+DATA: 0x006e6000 - 0x006bd000 = 0x29000
+
+40000:
+
+
+00400000-004b6000 r-xp 00000000 00:00 101636                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo
+004b6000-004b7000 r-xp 000b6000 00:00 101636                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo
+006b7000-006bd000 rw-p 000b7000 00:00 101636                     /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem2_previo
+006bd000-006e6000 rw-p 00000000 00:00 0
+00f2d000-00f50000 rw-p 00000000 00:00 0                          [heap]
+7fffe86d6000-7fffe8ed6000 rw-p 00000000 00:00 0                  [stack]
+7fffe9243000-7fffe9244000 r-xp 00000000 00:00 0                  [vdso]
+
+HEAP: 0x00f50000 - 0x00f2d000 = 0x23000
+DATA: 0x006e6000 - 0x006bd000 = 0x29000
+
+mem2_previo hasn't difference between the 2 inputs because we declare the same space to the vector, but in mem2_previo_v2 its different because it depends of each input.

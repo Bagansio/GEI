@@ -1,0 +1,94 @@
+->About alarm1:	reception	of	different	types	of	signals	and	sending	events	from	
+  the	terminal
+
+    1. Execute alarm1 in a terminal and observe its behaviour. What happens after 5 seconds?
+
+
+    After 5 seconds the process doesn't do anything, but at 10 seconds it gives a message: "Alarm clock" and then ends the process.
+
+    2. Execute again alarm1 and before the timer ends send it a SIGKILL signal. To do it, in another
+    terminal execute the ps command to obtain the pid of the process and next use the kill
+    command with the option –KILL to send the SIGKILL signal to the process. Is the behaviour
+    the same as if you wait for the arrival of SIGALRM? Do you receive a different message in
+    the terminal?
+
+    The behaviour is different, if you use that signal the process ends at the same moment that you give the signal and gives the message: "Killed" 
+
+    3. Which process is in charge of showing the messages that appear on screen when the alarm1
+    process dies? With which system call the shell recovers the finalization status of the process
+    that executes alarm1 when it ends?
+
+    The bash process is who show the messages when alarm1 dies
+    The waitpid is the system call used to recovers the shell 
+    
+    4. Is it necessary the exit at the end of the code of alarm1? Is it ever executed?
+
+    Is not necessary because it dies before.
+
+->About alarm2:	any	signal	can	be	sent	through	shell commands.
+
+    1. Execute alarm2 in a terminal. Open another one, find out the pid of the alarm2 process and
+    use the kill command to send the –ALRM signal several times. What behaviour can you see?
+    The time control behaved as the code pretended?
+
+    When you use that signal the process gives a new message saying that 10 more seconds have passed
+    The time control behaved differently than the code intended because it wasn't 100 seconds as it was expected
+
+    2. Can the associated treatment of any signal be modified?
+    
+    No,because SIGKILL and SIGSTOP can't be modified.
+    
+    3. Search in the man (man alarm) the return value of the alarm system call and think how we
+    could fix the code to detect when SIGALRM reaches us without being related to any timer.
+
+    The alarm returns 0 if there  was no previously scheduled alarm, and if we send that signal we have already the previous alarm and then it gives another value
+
+    Then we only need to change:
+        alarm(10)
+        if(alarm(10) > 0) //The fix that we want
+
+->About alarm3:	the	signals	programming	table	is	inherited.
+
+    1. Who receives the SIGALRM: the parent, the child, or both? How did you check it? Modify
+    the “funcion_alarma” function to make that the message also writes the pid of the process,
+    in a way that we can easily see which process receives the signals.
+
+    Both receive the SIGALRM, I check it sending a signal to each process and they still working
+
+->About alarm4:	the	SIGALRM	are	only	received	by	the	process	that	generates	
+  them
+
+    1. How many SIGALRMS programs each process? Who receives the alarm: the parent, the child,
+    or both? What happens to the parent? How did you check? Modify the code in such a way
+    that the first alarm is programmed by the parent before the fork (and not the child), and
+    observe how the child is kept waiting in the sigsuspend call. 
+
+    Each process programs a SIGALRM but only the child receives the alarm, the parent waits to the child to finish the loop and then both get killed
+
+->About ejemplo_waitpid: sending	 signals	 using	 system	 calls,	 managing	 the	
+  finalization	status	of	the	children	and	deactivation	of	a	timer.
+    
+    1. Analyse the code of this program and execute it. Observe that inside the code of the children
+    processes a timer is used to fix their execution time to a second.
+    
+
+    
+    2. Modify the code in order to make the parent process to show a message describing the
+    cause of death of the child through its standard output when exiting the waitpid
+    (successfully finished or dead because it received a signal).
+    
+    sprintf(buff,"Termina el proceso %d\n",pid);
+
+    ----------------------
+
+    if(res == 0) sprintf(buff,"Termina el proceso %d\n",pid);
+	else sprintf(buff,"Termina el proceso con un signal %d\n",pid);
+    
+    
+    3. Complete the program to limit the max waiting time of the waitpid at each iteration of the
+    loop: if no child has finished its execution after 2 seconds, the parent has to send a SIGKILL
+    to each of its alive children. In case some child finishes on time, the parent will deactivate
+    the timer and will show a message indicating how much time was left before the sending of
+    the SIGALRM. To deactivate the timer you can use the system call alarm passing as a
+    parameter a 0. NOTE: have in mind that in order to do that you need to store all the pids of
+    your created children and register them as they die.

@@ -1,0 +1,122 @@
+QUESTION 35. Which variables appear on the output of nm on mem1_dynamic? Which
+direction occupies each of them? Indicate to which region each variable belongs according
+to the output of nm and the type of variable (local or global).
+
+    Just the gobalArray variable, "0000000000201040 B globalArray" it's because it's a global variable and it is inside the BSS
+
+
+QUESTION 36. For both executables, static and dynamic compiling, observe their size and the
+output of the commands nm and objdump. What are the differences between the files?
+
+
+mem1_dynamic: 8552 bytes
+
+mem1_static: 844888 bytes
+
+When it is compiled with the static libraries their size are much bigger than dynamic form, it is because it have compiled that libraries, for that reason the outputs of nm and objdump are bigger because it has the static libraries instructions.
+
+
+
+QUESTION 37. Observe the contents of the maps file of the /proc of each process and write
+down for each region the initial address, the final address and the associated tag. What’s
+the difference between the maps of each process?
+
+mem1_dynamic: 
+
+  INITIAL   -    FINAL                                                          [associated tag]
+
+7f92c1a00000-7f92c1be7000 r-xp 00000000 00:00 281776             /lib/x86_64-linux-gnu/libc-2.27.so
+7f92c1be7000-7f92c1bf0000 ---p 001e7000 00:00 281776             /lib/x86_64-linux-gnu/libc-2.27.so
+7f92c1bf0000-7f92c1de7000 ---p 001f0000 00:00 281776             /lib/x86_64-linux-gnu/libc-2.27.so
+7f92c1de7000-7f92c1deb000 r--p 001e7000 00:00 281776             /lib/x86_64-linux-gnu/libc-2.27.so
+7f92c1deb000-7f92c1ded000 rw-p 001eb000 00:00 281776             /lib/x86_64-linux-gnu/libc-2.27.so
+7f92c1ded000-7f92c1df1000 rw-p 00000000 00:00 0
+7f92c1e00000-7f92c1e26000 r-xp 00000000 00:00 281772             /lib/x86_64-linux-gnu/ld-2.27.so
+7f92c1e26000-7f92c1e27000 r-xp 00026000 00:00 281772             /lib/x86_64-linux-gnu/ld-2.27.so
+7f92c2027000-7f92c2028000 r--p 00027000 00:00 281772             /lib/x86_64-linux-gnu/ld-2.27.so
+7f92c2028000-7f92c2029000 rw-p 00028000 00:00 281772             /lib/x86_64-linux-gnu/ld-2.27.so
+7f92c2029000-7f92c202a000 rw-p 00000000 00:00 0
+7f92c2200000-7f92c2202000 rw-p 00000000 00:00 0
+7f92c2400000-7f92c2401000 r-xp 00000000 00:00 97617              /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem1_dynamic
+7f92c2600000-7f92c2601000 r--p 00000000 00:00 97617              /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem1_dynamic
+7f92c2601000-7f92c2602000 rw-p 00001000 00:00 97617              /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem1_dynamic
+7f92c2602000-7f92c2603000 rw-p 00000000 00:00 0
+7fffdb0a7000-7fffdb0c8000 rw-p 00000000 00:00 0                  [heap]
+7fffe300d000-7fffe380d000 rw-p 00000000 00:00 0                  [stack]
+7fffe3d27000-7fffe3d28000 r-xp 00000000 00:00 0                  [vdso]
+
+mem1_static:
+
+00400000-004b5000 r-xp 00000000 00:00 98328                      /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem1_static
+004b5000-004b6000 r-xp 000b5000 00:00 98328                      /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem1_static
+006b6000-006bc000 rw-p 000b6000 00:00 98328                      /mnt/f/alexm/Repositorios/GEI/Second/SO/S5/mem1_static
+006bc000-006be000 rw-p 00000000 00:00 0
+00aa8000-00acb000 rw-p 00000000 00:00 0                          [heap]
+7fffddc97000-7fffde497000 rw-p 00000000 00:00 0                  [stack]
+7fffde8a3000-7fffde8a4000 r-xp 00000000 00:00 0                  [vdso]
+
+The difference between both are that dynamic has the address of dynamic libraries to execute but the static has in his own memory the static libraries.
+
+QUESTION 38. To which region of the ones described in the maps belongs each variable and
+each zone allocated with malloc? Write down the initial address, the final address and the
+name of the region.
+
+    INITIAL   -    FINAL                                   name of the region
+    00aa8000 -   00acb000                                        [heap]
+
+QUESTION 39. For each execution write down the number of mallocs done and the initial and
+final address of the heap shown by the maps file of the /proc. Does the size change
+depending on the input parameter? Why?
+
+    3 mallocs:
+
+    initial: 7fffdb3da000
+    final: 7fffdb3fb000
+    size: 0x21000
+
+
+    5 mallocs:
+
+    initial: 7fffb9bf7000
+    final: 7fffb9c18000
+    size: 0x21000
+
+    100 mallocs:
+
+    initial: 7fffd212f000
+    final: 7fffd21b3000
+    size: 0x84000
+
+    It changes when its 100 because malloc can do the sbrk system call and between 3 and 5 can be in the same page.
+
+QUESTION 40. What is the size of the heap in this case? Explain the results.
+
+HEAP size:
+7fffbdbda000 -  7fffbdbb9000 = 0x21000
+
+It is because when we use the free function marks the previous space as free and then the process still saving in the same pages.
+
+QUESTION 41. For each execution write down the number of mallocs done and the initial and
+final address of the heap shown in the maps of the /proc. Does the size of the heap change
+regarding the observations of question 6? Why?
+
+    3 mallocs:  
+
+    initial: 7fffec3d3000
+    final: 7fffec3d6000
+    size: 0x3000
+
+
+    5 mallocs:
+
+    initial: 7fffc623a000
+    final: 7fffc623f000
+    size: 0x5000
+
+    100 mallocs:
+
+    initial: 7fffc8a7a000
+    final: 7fffc8ade000
+    size: 0x64000
+
+It changes the size because sbrk makes always bigger the heap
