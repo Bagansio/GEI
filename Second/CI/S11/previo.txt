@@ -1,0 +1,30 @@
+ CI. Pràctica AD. Qüestions prèvies.
+
+1) Consulteu el resultat de la conversió per polling o per interrupcions
+
+Polling
+
+2) Quins pins heu configurat com entrades analògiques i quins com a digitals
+
+Tots digitals menys el pinA0 que és analògic
+
+3) Amb quin valor (en binari) heu programat CHS4CHS0 del registre ADCON0
+
+001
+
+4) Quin és el TAD per bit
+
+El TAD es 4
+
+5) Amb quin valor (en binari) heu programat ACQT2ACQT0 del registre
+ADCON2
+
+010
+
+TAD = 4
+
+6) Quin és el temps d’adquisició
+
+Fosc = 8MHz
+Base clock = Fosc/8 -> Periode 1 microsegon
+Temps d'aquisició = Periode * TAD = 1 microsegon * 4 = 4microsegons.

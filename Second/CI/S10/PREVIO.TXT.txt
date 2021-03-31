@@ -1,0 +1,26 @@
+Grup	Noms i Cognoms
+23	Alex Moa Leal
+1) Quants bits té el registre complet CCPRx? i el registre CCPRxL?
+
+El complert 16 bits i CCPRxL 8 bits
+
+2) Quin és el registre amb el que es pot controlar el període del senyal CCPx?
+
+CCPRXL
+
+3) Quin és el registre amb el que es pot controlar el duty-cycle del senyal CCPx?
+
+PRX
+
+4) Com estan relacionats el període (T) del senyal PWM i el màxim nombre possible de duty-cycles diferents (N) que es poden generar?
+
+PWM Period = (N+ 1) * 4 * T *(TMR2 Prescale Value) 
+
+5) Amb quin valor heu programat el registre PR2?
+
+Al primer previ 50 = 40%
+Al segon 124
+
+6) Cada quants milisegons incrementeu el valor del duty-cycle? En quantes unitats?
+
+Cada 0.8 ms incrementem en 100 unitats

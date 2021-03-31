@@ -1,0 +1,39 @@
+Sessió de Laboratori Timers
+
+Cognoms i Nom	Moa Leal Alex					Codi GRUP 23
+
+
+⦁	Quina és la Freqüència de Clock a la que treballa el micro de la EasyPIC?
+
+ Treballa a 8MHz
+
+⦁	Quant temps dura un Cicle d’Instrucció (Instruction Cycle)?
+
+1(Fosc/4) = 1/(2*10^6)
+
+⦁	Quan escrivim un valor a TMR0H, en quin moment s’actualitza el valor del registre TMR0H? 
+
+Despres d'un cicle d'instrució
+
+⦁	Amb quin valor programeu el prescaler del Timer0? Quantes unitats haureu de comptar amb el Timer0 per tal de tenir una Interrupció cada dècima de segon? Afegiu els càlculs que heu fet, per justificar les respostes.
+
+Fosc = 8MHz
+
+Com posem T0CS = 0 
+El periode = 1/( Fosc/4) = Cicle d'instrucio = 1/(2*10^6)
+
+0,1 s * 1tic / (PRE/(2*10^6) <= 2^16 = 65536
+
+On PRE és múltiple de 2
+Si PRE = 2
+100.000 > 65536 -> Per tant ha de ser més gran.
+
+Si PRE = 4 
+El calcul surt:
+
+50000 <= 65536  Per tant amb un PRE = 4 tenim suficient.
+A causa d'això 50.000 tics són 0,1s
+
+⦁	Quina és la situació que fa que es generi una Interrupció de Timer0?
+
+Posem el TMR0 = 65536 - 50000 i a causa d'això cada 50.000 tics o equivalentment cada 0,1 s es genera una interrupció de Timer0
