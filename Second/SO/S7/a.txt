@@ -1,0 +1,5 @@
+1. Which value returns the read call after pressing ^D? 
+
+The value returned by the read call is 0, the reason why ends the loop.
+
+fin ejecución

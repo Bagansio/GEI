@@ -1,0 +1,6 @@
+1. Hacer "inlining" de una función significa sustituir la llamada de esta en el programa por el propio codigo de la función.
+
+2. La opción específica de compilación de gcc que permite al compilador hacer "inlining" de todas las funciones simples es: -finline-functions, por otro lado -finline-limit es limitar el numero de funciones que aplican el "inlining"
+
+3. En el .globl deberia aparecer la etiqueta "Pepito" que referenciaria a esta función, a su vez para averiguar si es invocada, habría que buscar si se hace la llamada "call Pepito".
+

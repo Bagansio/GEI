@@ -1,0 +1,57 @@
+1. Which value returns the read call after pressing ^D? 
+
+The value returned by the read call is 0, the reason why ends the loop.
+
+2. Write down the command used in the “previo.txt” file.
+
+./es1 < <file_name>.txt
+
+3.What is the result? What does the command ‘grep es’?
+
+-rwxrwxrwx 1 bagansio bagansio 1062 Apr 19  2013 es1.c
+-rwxrwxrwx 1 bagansio bagansio 1418 Apr 19  2013 es2.c
+-rwxrwxrwx 1 bagansio bagansio  880 Nov 13  2013 es3.c
+-rwxrwxrwx 1 bagansio bagansio 1089 Apr 19  2013 es4.c
+-rwxrwxrwx 1 bagansio bagansio   22 Jan 27  2012 es5.c
+-rwxrwxrwx 1 bagansio bagansio   99 Jan 27  2012 es6.c
+-rwxrwxrwx 1 bagansio bagansio   93 Jan 30  2012 es7.c
+-rwxrwxrwx 1 bagansio bagansio  552 Jan 30  2012 es8.c
+
+Where the "es" of each file is red.
+
+4. Execute a pipeline that shows in the standard output the PID, the user and the name of
+all the bash processes that are being executed in the system. For it use the ps and grep
+commands combined with a pipe. Write down the command in the file “previo.txt”.
+
+ps -eo pid,user,command | grep [b]ash
+
+
+5. In the case of the terminal logical device, the device driver that manages it interprets
+all the bytes that have to be written as ASCII codes, showing the corresponding
+character. The file es8.c contains a program that writes two times a number in its
+standard output: one using the internal machine’s representation and another one
+converting the number to string. Compile and execute it. How many bytes are written
+in each case? What observable differences appear on the screen?
+
+The internal machine’s representation writes 4 bytes because it is the number transformed to ascii, I guess that we are seeing less bytes because they are not representables.
+And the another one writes 5 bytes as we can see it.
+
+6.
+
+a) Which function is used to implement the specific read of the device
+managed by each device driver?
+
+The function read_driver_1 for Driver1 and the function read_driver_2 for Driver2.
+
+b) What are the major and minor? What’s their use? Which major and minor
+use the two device drivers?
+
+Major and minors are the device driver identifiers. They are used to associate a logical device with its specific access code.
+
+Driver1:
+    Major: 249
+    Minor: 0
+
+Driver2:
+    Major: 250
+    Minor: 0

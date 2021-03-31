@@ -1,0 +1,53 @@
+• Crea una pipe con nombre mediante el comando mknod. A continuación lanza un
+proceso que ejecute el programa ‘cat’ redireccionando su salida estándar hacia la pipe
+que acabas de crear. En una shell diferente lanza otro proceso que ejecute también el 
+programa ‘cat’, pero ahora redireccionando su entrada estándar hacia la pipe que
+acabas de crear. Introduce datos por teclado, en la primera Shell, y pulsa ^D para indicar
+el fin. Anota en el fichero “previo.txt” los comandos que has ejecutado.
+
+#mknod pipe p
+#cat < pipe
+#cat > pipe
+
+
+• ¿Es posible comunicar los dos comandos ‘cat’ desde dos terminales diferentes a través
+de una pipe sin nombre (por ejemplo, utilizando un pipeline de la shell visto en la sesión
+anterior)? ¿y desde el mismo terminal? Razona la respuesta en el fichero “previo.txt”.
+
+Entre diferentes terminales no, ya que al no tener nombre solo solo se puede usar en ese mismo proceso, 
+en cambio por esa misma razón sí se puede usar en una misma terminal.
+
+• Escribe en el fichero “previo.txt” el fragmento de código que deberíamos añadir a un
+programa cualquiera para redireccionar su entrada estándar al extremo de escritura de
+una pipe sin nombre utilizando las llamadas al sistema close y dup. Imagina que el
+descriptor de fichero asociado al extremo de escritura de la pipe es el 4.
+
+	dup2(4,0);
+	close(4);
+
+• El fichero “socketMng.c” contiene unas funciones de gestión básica de sockets
+(creación, solicitud de conexión, aceptación de conexión y cierre de dispositivos
+virtuales).
+o Analiza en detalle el código de la función createSocket y serverConnection, y
+busca en el man el significado de las llamadas a sistema socket, bind, listen y
+accept.
+o Explica en el fichero “previo.txt” paso a paso lo que hacen estas dos funciones.
+
+createSocket:
+	
+	Crea un Addr para el socket y le copia el string dado por parametro por la propia funcion,
+	despues en socket_fd (un int) guarda el descriptor de AF_UNIX, SOCK_STREAM, y 0
+	siendo AF_UNIX el dominio, SOCK_STREAM el tipo y el 0 el protocolo usado.
+
+	Una vez realizado esto comprueba si el socket_fd < 0 donde si eso pasa devuelve ese valor ya que eso significa que ha habido algun error
+
+	Guarda en ret(un int) el valor dado por la funcion bind, la cual, enlaza el socket con una direccion. Si ret < 0 (== -1) se cierra y devuelve el valor y si es == 0 sigue
+	Finalmente guarda en ret el valor dado por la funcion listen, haciendo que el socket entre en modo pasivo para que pueda acceptar una transmision entrante.
+	si este valor == 0 se ha creado el socket correctamente y devuelve el descriptor y sino lo cierra y devuelve -1
+
+ServerConnection:
+
+	Por parametro tiene un descriptor de un socket
+	luego evalua mediante la función accept si este socket esta bien creado (que este enlazado y en modo pasivo para acceptar una transmision entrante)
+	Si se evalua correctamente devuelve el descriptor, en caso contrario -1
+

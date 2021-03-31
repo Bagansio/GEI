@@ -1,0 +1,148 @@
+1. Contesta las siguientes preguntas en el fichero “previo.txt”:
+
+	• ¿Cómo podéis saber los sistemas de ficheros montados en vuestro sistema y de
+	qué tipo son? Indica, además, en qué directorios están montados.
+
+	Lo podemos saber usando el comando #df con la opcion "-T" -> #df -T
+
+	
+	Filesystem     Type  1K-blocks      Used Available Use% Mounted on
+	rootfs         lxfs  233769980 151811312  81958668  65% /
+	none           tmpfs 233769980 151811312  81958668  65% /dev
+	none           tmpfs 233769980 151811312  81958668  65% /run
+	none           tmpfs 233769980 151811312  81958668  65% /run/lock
+	none           tmpfs 233769980 151811312  81958668  65% /run/shm
+	none           tmpfs 233769980 151811312  81958668  65% /run/user
+	tmpfs          tmpfs 233769980 151811312  81958668  65% /sys/fs/cgroup
+	C:\            drvfs 233769980 151811312  81958668  65% /mnt/c
+	D:\            drvfs     98304        14     98290   1% /mnt/d
+	F:\            drvfs 975714496 748765028 226949468  77% /mnt/f
+
+
+	• ¿Cómo se puede saber el número de inodos libres de un sistema de ficheros?
+	¿Qué comando has utilizado y con qué opciones?
+
+	Usando el comando #df -i  (Usando la opción -i porque lista la información de los inodos)
+
+	• ¿Cómo se puede saber el espacio libre de un sistema de ficheros? ¿Qué
+	comando has utilizado y con qué opciones?
+
+	Usando el comando #df -h (Usando la opción -h porque enseña los espacios en potencias de 1024)
+
+2. Ejecuta los siguientes comandos y responde en el fichero previo.txt a las siguientes
+preguntas:
+
+	#echo "esto es una prueba" > pr.txt
+	#ln -s pr.txt sl_pr
+	#ln pr.txt hl_pr
+
+	• ¿De qué tipo es cada uno de links creados, sl_pr y hl_pr? Ejecuta el comando
+	stat sobre pr.txt, sobre sl_pr y sobre hl_pr. Busca en la salida de stat la
+	información sobre el inodo, el tipo de fichero y el número de links y anótala en
+	el fichero previo.txt. ¿Cuál es el número de links que tiene cada fichero? ¿Qué
+	significa ese valor? ¿Qué inodo tiene cada fichero? ¿Alguno de los links, sl_pr o
+	hl_pr, tiene el mismo inodo que pr.txt? ¿Si es así, qué significa eso?
+		
+		#stat sl_pr (SOFT LINK)
+		File: sl_pr -> pr.txt
+		Tipo: "symbolic link" -> Enlace simbólico
+		Inode: 64739244643452319 
+		Links: 1
+
+		#stat hl_pr (HARD LINK)
+		File: hl_pr
+		Tipo: "regular file" -> Fichero regular
+		Inode: 77968568548978812 
+		Links: 2
+
+		#stat pr.txt
+		File: pr.txt
+		Tipo: "regular file" -> Fichero regular
+		Inode: 77968568548978812 
+		Links: 2
+
+		El numero de links son el numero de apariciones en la tabla de ficheros
+		pr.txt y hl_pr tienen el mismo inode esto es dbido a que hl_pr es un hard link y apunta al mismo nodo
+
+	• Ejecuta los comandos cat, namei y readlink sobre sl_pr y sobre hl_pr:
+		o Apunta el resultado en el fichero previo.txt.
+
+		#cat
+			#cat sl_pr
+			“esto es una prueba”
+			
+			#cat hl_pr
+			“esto es una prueba”
+
+		#namei
+			#namei sl_pr
+			f: sl_pr
+ 			 l sl_pr -> pr.txt
+   			   - pr.txt
+
+			#namei hl_pr
+			f: hl_pr	
+			 - hl_pr
+
+		#readlink
+			#readlink sl_pr
+			pr.txt
+			
+			#readlink hl_pr
+			//Nada
+
+		o ¿Observas alguna diferencia en el resultado de alguno de los comandos			
+		cuando se ejecutan sobre sl_pr y cuando se ejecutan sobre hl_pr? Si hay
+		alguna diferencia, explica el motivo.
+
+		#cat: Ninguna diferencia
+
+		#namei: El sl_pr es un enlace que apunta a pr.txt
+		
+		#readlink sl_pr es un enlace de pr.txt mientras que hl_pr no
+
+	• Elimina ahora el fichero pr.txt y vuelve a ejecutar los comandos stat, cat, namei
+	y readlink tanto sobre sl_pr como hl_pr.
+		o Apunta los resultados en el fichero previo.txt
+
+		#cat
+			#cat sl_pr
+			cat: sl_pr: No such file or directory
+			
+			#cat hl_pr
+			“esto es una prueba”
+
+		#namei
+			#namei sl_pr
+			f: sl_pr
+ 			 l sl_pr -> pr.txt
+   			   pr.txt - No such file or directory
+
+			#namei hl_pr
+			f: hl_pr	
+			 - hl_pr
+
+		#readlink
+			#readlink sl_pr
+			pr.txt
+			
+			#readlink hl_pr
+			//Nada
+
+		o ¿Observas alguna diferencia en el resultado de alguno de los comandos
+		cuando se ejecutan sobre sl_pr y cuando se ejecutan sobre hl_pr? Si hay
+		alguna diferencia, explica el motivo.
+
+		#cat: el comando en hl_pr es identico a antes mientras que en sl_pr nos marca que no existe el fichero o directorio, esto es debido
+		a que hl_pr contiene el inodo mientras que el sl_pr referenciaba a pr.txt que ya no existe
+
+		#namei: Lo mismo que en cat
+
+		#readlink hacen lo mismo que antes
+
+		o ¿Observas alguna diferencia respecto a la ejecución de estos comandos
+		antes y después de borrar el fichero pr.txt? Si hay alguna diferencia,
+		explica el motivo.
+
+		hl_pr es un hardlink por lo que guarda el inodo, mientras que sl_pr es un soft link por lo que referencia a pr.txt cuando se borra pr.txt el
+		hardlink sigue funcionando mientras que sl_pr no ya que pr.txt no existe
