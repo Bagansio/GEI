@@ -11,5 +11,18 @@ class MyGLWidget : public LL2GLWidget {
 
   private:
     int printOglError(const char file[], int line, const char func[]);
-    virtual void paintGL ( );
+    void paintGL();
+    void iniCamera();
+    void projectTransform ();
+    void viewTransform ();
+    void keyPressEvent (QKeyEvent *event);
+    
+    void changeCamera();
+    void moveHomer(int i);
+    void resizeGL (int width, int height);
+    void restart();
+    
+    bool isPerspective;
+    float fov,fovini, ra, znear, zfar, distance, radius , raw, rav; //Theta
+    glm::vec3 Pmin,Pmax;
 };

@@ -101,18 +101,10 @@ void MyGLWidget::changeCamera(){
     
     isPerspective = ! isPerspective;
     
-    if(isPerspective){
-        obs = glm::vec3(0.5, 2, 12);
-        up = glm::vec3(0, 1, 0);
-  
-        //Theta = 0.0; deja la camara en pos original
-    }
-    else {
-        obs = glm::vec3(0.5, 12, 0);
-        up = glm::vec3(0, 0, 1);
-  
-        //Theta = float(M_PI/2.0);
-    }
+    if(isPerspective)
+        Theta = 0.0;
+    else 
+        Theta = float(M_PI/2.0);
 
     viewTransform();
     projectTransform();
@@ -124,7 +116,7 @@ void MyGLWidget::viewTransform ()
   glm::mat4 View(1.0f);
   View = glm::lookAt (obs, vrp, up);
   
-  //View = glm::rotate(View, Theta, glm::vec3 (1., 0., 0.));
+  View = glm::rotate(View, Theta, glm::vec3 (1., 0., 0.));
 
   
   glUniformMatrix4fv (viewLoc, 1, GL_FALSE, &View[0][0]);
@@ -151,6 +143,8 @@ void MyGLWidget::iniCamera(){
   
   Pmin = glm::vec3(-4.0,-0.5,-4.0);
   Pmax = glm::vec3(4.0,0.5,4.0);
+  
+  Theta = 0.0;
 
   radius = glm::distance(Pmax,Pmin)/2.0f;
 
