@@ -1,0 +1,293 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>453</width>
+    <height>187</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QHBoxLayout" name="horizontalLayout">
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_4">
+      <item>
+       <widget class="MyLabel" name="passageLabel">
+        <property name="styleSheet">
+         <string notr="true">background-color: rgb(255, 0, 0);</string>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="openButton">
+        <property name="text">
+         <string>Open/Close</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout_3">
+      <item>
+       <widget class="QPushButton" name="carButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Car</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="TruckButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Truck</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QPushButton" name="mcButton">
+        <property name="enabled">
+         <bool>false</bool>
+        </property>
+        <property name="text">
+         <string>Motorcycle</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+    <item>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QLabel" name="label_2">
+        <property name="text">
+         <string>Vehicles that have passed:</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="MyLabel" name="CarsLabel">
+        <property name="text">
+         <string>Cars: 0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="MyLabel" name="TrucksLabel">
+        <property name="text">
+         <string>Trucks: 0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="MyLabel" name="MotorcyclesLabel">
+        <property name="text">
+         <string>Motorcycles:  0</string>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="MyLabel" name="moneyLabel">
+        <property name="text">
+         <string>Total money: 0</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </item>
+   </layout>
+  </widget>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyLabel</class>
+   <extends>QLabel</extends>
+   <header>MyLabel.h</header>
+   <slots>
+    <slot>changeSemaphoreStatus(bool)</slot>
+    <slot>updateRecaudationCarMC()</slot>
+    <slot>updateRecaudationTruck()</slot>
+    <slot>updateCar()</slot>
+    <slot>updateMC()</slot>
+    <slot>updateTruck()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>carButton</sender>
+   <signal>clicked()</signal>
+   <receiver>CarsLabel</receiver>
+   <slot>updateCar()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>58</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>openButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>carButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>137</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>41</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>openButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TruckButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>92</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>openButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>mcButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>215</x>
+     <y>143</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>carButton</sender>
+   <signal>clicked()</signal>
+   <receiver>moneyLabel</receiver>
+   <slot>updateRecaudationCarMC()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>41</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TruckButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TrucksLabel</receiver>
+   <slot>updateTruck()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>93</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TruckButton</sender>
+   <signal>clicked()</signal>
+   <receiver>moneyLabel</receiver>
+   <slot>updateRecaudationTruck()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>92</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mcButton</sender>
+   <signal>clicked()</signal>
+   <receiver>MotorcyclesLabel</receiver>
+   <slot>updateMC()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>127</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>mcButton</sender>
+   <signal>clicked()</signal>
+   <receiver>moneyLabel</receiver>
+   <slot>updateRecaudationCarMC()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>215</x>
+     <y>143</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>365</x>
+     <y>162</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>openButton</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>passageLabel</receiver>
+   <slot>changeSemaphoreStatus(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>75</x>
+     <y>165</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>75</x>
+     <y>79</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
