@@ -28,7 +28,9 @@ void MyGLWidget::initializeGL( ){
 
   posFocusFLoc = glGetUniformLocation (program->programId(), "posFocusF");
   glm::vec3 posFocusF[3] = {
-    glm::vec3(-3.5, 10.0, -3.5),glm::vec3(3.5, 10.0, -3.5),glm::vec3(3.5, 10.0, 3.5)
+    glm::vec3(-3.5f, 10.0f, -3.5f),
+    glm::vec3(3.5f, 10.0f, -3.5f),
+    glm::vec3(3.5f, 10.0f, 3.5f)
   };
   glUniform3fv(posFocusFLoc,3,&posFocusF[0].x);
 

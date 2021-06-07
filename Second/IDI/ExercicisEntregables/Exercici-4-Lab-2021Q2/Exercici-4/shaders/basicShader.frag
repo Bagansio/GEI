@@ -68,7 +68,8 @@ void main(){
     }
     else{
       for(int i = 0; i < 3; ++i){
-        vec3 L = normalize(posFocusF[i] - fvertex);
+        vec3 focusEsc = (View * vec4(posFocusF[i],1.0)).xyz;
+        vec3 L = normalize(focusEsc - fvertex);
         color += Lambert(normalize(fnormal), L, colFocusF[i]) +
                  Phong (normalize(fnormal), L, fvertex, colFocusF[i]);
       }

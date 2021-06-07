@@ -1,0 +1,436 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Exercici1</class>
+ <widget class="QWidget" name="Exercici1">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>322</width>
+    <height>240</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>Widget</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true"/>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout">
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout1">
+     <property name="spacing">
+      <number>10</number>
+     </property>
+     <property name="leftMargin">
+      <number>0</number>
+     </property>
+     <property name="topMargin">
+      <number>10</number>
+     </property>
+     <property name="rightMargin">
+      <number>0</number>
+     </property>
+     <property name="bottomMargin">
+      <number>10</number>
+     </property>
+     <item>
+      <widget class="MyLabel" name="label">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color: rgb(255, 0, 0);</string>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_6">
+       <item>
+        <widget class="QRadioButton" name="HighwayEnabled">
+         <property name="text">
+          <string>Obrir/Tancar pas</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MyLabel" name="TotalMoney">
+         <property name="text">
+          <string>Total diners recaudats: 0€</string>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <spacer name="verticalSpacer">
+     <property name="orientation">
+      <enum>Qt::Vertical</enum>
+     </property>
+     <property name="sizeHint" stdset="0">
+      <size>
+       <width>20</width>
+       <height>5</height>
+      </size>
+     </property>
+    </spacer>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_4">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="CarButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Cotxe (1€)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MyLabel" name="TotalCars">
+         <property name="text">
+          <string>Total cotxes: 0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_3">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="MotorcycleButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Moto (1€)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MyLabel" name="TotalMotorcycle">
+         <property name="text">
+          <string>Total motos: 0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+     <item>
+      <layout class="QVBoxLayout" name="verticalLayout_5">
+       <property name="leftMargin">
+        <number>10</number>
+       </property>
+       <property name="topMargin">
+        <number>5</number>
+       </property>
+       <property name="rightMargin">
+        <number>10</number>
+       </property>
+       <property name="bottomMargin">
+        <number>5</number>
+       </property>
+       <item>
+        <widget class="QPushButton" name="TruckButton">
+         <property name="enabled">
+          <bool>false</bool>
+         </property>
+         <property name="minimumSize">
+          <size>
+           <width>0</width>
+           <height>50</height>
+          </size>
+         </property>
+         <property name="text">
+          <string>Camió (4€)</string>
+         </property>
+        </widget>
+       </item>
+       <item>
+        <widget class="MyLabel" name="TotalTrucks">
+         <property name="text">
+          <string>Total camions: 0</string>
+         </property>
+         <property name="alignment">
+          <set>Qt::AlignCenter</set>
+         </property>
+        </widget>
+       </item>
+      </layout>
+     </item>
+    </layout>
+   </item>
+   <item>
+    <layout class="QHBoxLayout" name="horizontalLayout">
+     <item>
+      <spacer name="horizontalSpacer">
+       <property name="orientation">
+        <enum>Qt::Horizontal</enum>
+       </property>
+       <property name="sizeHint" stdset="0">
+        <size>
+         <width>298</width>
+         <height>20</height>
+        </size>
+       </property>
+      </spacer>
+     </item>
+     <item>
+      <widget class="QPushButton" name="exitButton">
+       <property name="text">
+        <string>&amp;Exit</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </item>
+  </layout>
+ </widget>
+ <customwidgets>
+  <customwidget>
+   <class>MyLabel</class>
+   <extends>QLabel</extends>
+   <header>MyLabel.h</header>
+   <slots>
+    <slot>ChangeHighwayColor(bool)</slot>
+    <slot>UpdateCarMotorcyclePrice()</slot>
+    <slot>UpdateTruckPrice()</slot>
+    <slot>UpdateCarNum()</slot>
+    <slot>UpdateMotorcycleNum()</slot>
+    <slot>UpdateTruckNum()</slot>
+   </slots>
+  </customwidget>
+ </customwidgets>
+ <resources/>
+ <connections>
+  <connection>
+   <sender>exitButton</sender>
+   <signal>clicked()</signal>
+   <receiver>Exercici1</receiver>
+   <slot>close()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>304</x>
+     <y>230</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>239</x>
+     <y>229</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HighwayEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>label</receiver>
+   <slot>ChangeHighwayColor(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>196</x>
+     <y>23</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>122</x>
+     <y>22</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CarButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TotalMoney</receiver>
+   <slot>UpdateCarMotorcyclePrice()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>68</x>
+     <y>166</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>168</x>
+     <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MotorcycleButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TotalMoney</receiver>
+   <slot>UpdateCarMotorcyclePrice()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>170</x>
+     <y>157</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>212</x>
+     <y>68</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HighwayEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>CarButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>200</x>
+     <y>22</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>37</x>
+     <y>179</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HighwayEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>MotorcycleButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>262</x>
+     <y>25</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>149</x>
+     <y>164</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>HighwayEnabled</sender>
+   <signal>toggled(bool)</signal>
+   <receiver>TruckButton</receiver>
+   <slot>setEnabled(bool)</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>254</x>
+     <y>29</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>266</x>
+     <y>156</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TruckButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TotalMoney</receiver>
+   <slot>UpdateTruckPrice()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>243</x>
+     <y>156</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>259</x>
+     <y>65</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>CarButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TotalCars</receiver>
+   <slot>UpdateCarNum()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>24</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>34</x>
+     <y>197</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>MotorcycleButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TotalMotorcycle</receiver>
+   <slot>UpdateMotorcycleNum()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>184</x>
+     <y>163</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>174</x>
+     <y>195</y>
+    </hint>
+   </hints>
+  </connection>
+  <connection>
+   <sender>TruckButton</sender>
+   <signal>clicked()</signal>
+   <receiver>TotalTrucks</receiver>
+   <slot>UpdateTruckNum()</slot>
+   <hints>
+    <hint type="sourcelabel">
+     <x>293</x>
+     <y>167</y>
+    </hint>
+    <hint type="destinationlabel">
+     <x>285</x>
+     <y>195</y>
+    </hint>
+   </hints>
+  </connection>
+ </connections>
+</ui>
